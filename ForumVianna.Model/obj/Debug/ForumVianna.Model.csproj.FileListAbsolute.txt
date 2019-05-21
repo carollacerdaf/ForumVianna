@@ -41,7 +41,6 @@ C:\Users\clbatista\Documents\Forum\ForumVianna.Model\bin\Debug\MySql.Data.xml
 C:\Users\clbatista\Documents\Forum\ForumVianna.Model\bin\Debug\NHibernate.xml
 C:\Users\clbatista\Documents\Forum\ForumVianna.Model\bin\Debug\Remotion.Linq.xml
 C:\Users\clbatista\Documents\Forum\ForumVianna.Model\bin\Debug\Remotion.Linq.EagerFetching.xml
-C:\Users\clbatista\Documents\Forum\ForumVianna.Model\obj\Debug\ForumVianna.Model.csprojAssemblyReference.cache
 C:\Users\clbatista\Documents\Forum\ForumVianna.Model\obj\Debug\ForumVianna.Model.csproj.CoreCompileInputs.cache
 C:\Users\clbatista\Documents\Forum\ForumVianna.Model\obj\Debug\ForumVianna.Model.csproj.CopyComplete
 C:\Users\clbatista\Documents\Forum\ForumVianna.Model\obj\Debug\ForumVianna.Model.dll

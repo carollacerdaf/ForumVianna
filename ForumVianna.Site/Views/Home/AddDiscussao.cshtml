@@ -14,7 +14,6 @@
     @Html.AntiForgeryToken()
 
 
-  <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title">Modal title</h5>
@@ -68,12 +67,13 @@
                   @Html.ValidationMessageFor(model => model.Situacao, "", new { @class = "text-danger" })
               </div>
           </div>
+          </br></br>
           <div class="modal-footer">
               <button type="submit" value="Save" class="btn btn-primary">Salvar</button>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
       </div>
   </div>
-</div>
+
         }
     
