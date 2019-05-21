@@ -1,0 +1,18 @@
+﻿@using ForumVianna.Model.DB.Model
+
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    <div class="col-md-6">
+        <h2>Vianna Fórum</h2>
+        <p>
+            Forum destinado a qualquer coisa
+        </p>
+        <p><a class="btn btn-primary" href="https://go.microsoft.com/fwlink/?LinkId=301865">Fale conosco &raquo;</a></p>
+    </div>
+    <div class="col-md-6">
+        @Html.Partial("_AddEdtUsuario", new Usuario())
+    </div>
+</div>
+
