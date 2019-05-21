@@ -4,11 +4,15 @@
     ViewBag.Title = "Discussoes";
 }
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
 <h2>Discussoes</h2>
 
 <p>
-    @Html.ActionLink("Nova Discussão", "AddDiscussao")
+    <button type="button" class="btn-block">Abrir Modal</button>
 </p>
+<div class="modal fade" id="modalDis" role="dialog" 
+     data-url="@Url.Action("AddDiscussao","Home")"></div>
 <table class="table">
     <tr>
         <th>
@@ -60,3 +64,16 @@
 }
 
 </table>
+
+<script>
+    $(document).ready(function () {
+        $(".btn-block").click(function () {
+            var url = $("#modalDis").data("url");
+            $.get(url, function (data) {
+                $("#modalDis").html(data);
+                $("#modalDis").modal("show");
+            });
+        })
+
+    })
+</script>
