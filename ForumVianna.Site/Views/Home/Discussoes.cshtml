@@ -1,0 +1,80 @@
+﻿@model IEnumerable<ForumVianna.Model.DB.Model.Discussao>
+
+@{
+    ViewBag.Title = "Discussoes";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<h2>Discussoes</h2>
+
+<p>
+    <button type="button" class="btn btn-info"><i class="glyphicon-record"></i>Nova</button>
+</p>
+<div class="modal" id="modalDis" role="dialog" style="width=100px;"
+     data-url="@Url.Action("AddDiscussao","Home")"></div>
+<table class="table">
+    <tr>
+        <th>
+            Tópico
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Criacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Situacao)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Topico.Titulo)
+            </td>
+            <td>
+                @Html.ActionLink(item.Titulo, "Comentarios", new { id = item.Id })
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Criacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Ativo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Situacao)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditarDiscussao", new { id = item.Id }) |
+                @Html.ActionLink("Delete", "DeletarDiscussao", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    $(document).ready(function () {
+        $(".btn-info").click(function () {
+            var url = $("#modalDis").data("url");
+            $.get(url, function (data) {
+                $("#modalDis").html(data);
+                $("#modalDis").modal("show");
+            });
+        })
+
+    })
+</script>

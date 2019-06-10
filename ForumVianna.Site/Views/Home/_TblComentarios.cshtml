@@ -1,0 +1,48 @@
+﻿@model IEnumerable<ForumVianna.Model.DB.Model.Comentario>
+
+@{
+    ViewBag.Title = "Comentarios";
+
+    var idDiscussao = (Guid)ViewData["idDiscussao"];
+}
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Texto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Criacao)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Arquivo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Criacao)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Texto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Criacao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arquivo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Criacao)
+            </td>
+            <td>
+                @Html.ActionLink("Editar", "EditarComentario", new { id = item.Id, idDiscussao = idDiscussao }) |
+                @Html.ActionLink("Deletar", "DeletarComentario", new { id = item.Id, idDiscussao = idDiscussao })
+            </td>
+        </tr>
+    }
+
+</table>

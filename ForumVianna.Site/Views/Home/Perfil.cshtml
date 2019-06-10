@@ -1,0 +1,98 @@
+﻿@model ForumVianna.Model.DB.Model.Usuario
+
+@{
+    ViewBag.Title = "Perfil";
+}
+
+<h2>Perfil</h2>
+
+<div>
+    <h4>Usuario</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Apelido)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Apelido)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DtNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DtNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Senha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Senha)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Foto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Foto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ativo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ativo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ConfirmarSenha)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ConfirmarSenha)
+        </dd>
+
+    </dl>
+</div>
+
+
+<div class="modal" id="modalTop" role="dialog"
+     data-url="@Url.Action("EdtUsuario","Home", new { id = Model.Id } )"></div>
+<p>
+    <button type="button" class="btn btn-info">Editar</button>
+    @Html.ActionLink("Back to List", "Index")
+</p>
+<script>
+    $(document).ready(function () {
+        $(".btn-info").click(function () {
+            var url = $("#modalTop").data("url");
+            $.get(url, function (data) {
+                $("#modalTop").html(data);
+                $("#modalTop").modal("show");
+            });
+        })
+
+    })
+</script>

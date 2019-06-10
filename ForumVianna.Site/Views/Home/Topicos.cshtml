@@ -1,0 +1,61 @@
+﻿@model IEnumerable<ForumVianna.Model.DB.Model.Topico>
+
+@{
+    ViewBag.Title = "Topicos";
+}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+<h2>Topicos</h2>
+
+<p>
+    <button type="button" class="btn btn-info">Topico</button>
+</p>
+<div class="modal" id="modalTop" role="dialog"
+     data-url="@Url.Action("AddTopico","Home")"></div>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titulo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Descricao)
+        </th>
+        <th>
+            Usuário Dono
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descricao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dono.Apelido)
+            </td>
+            <td>
+                @Html.ActionLink("Inativar", "InativarTopico", new { id = item.Id })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<script>
+    $(document).ready(function () {
+        $(".btn-info").click(function () {
+            var url = $("#modalTop").data("url");
+            $.get(url, function (data) {
+                $("#modalTop").html(data);
+                $("#modalTop").modal("show");
+            });
+        })
+
+    })
+</script>
