@@ -77,6 +77,25 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+    <button style="width:150px;" type="button" class="btn-block btn btn-primary">Editar</button>
 </p>
+    |@Html.ActionLink("Back to List", "Index")
+
+    <div class="modal" style="background-color:white;padding:20px;border-radius: 10px;width:70%;height:50%;margin:auto;" id="modalTop" role="dialog"
+         data-url="@Url.Action("EdtUsuario","Home", new { id = Model.Id })">
+    </div>
+
+
+
+    <script>
+        $(document).ready(function () {
+            $(".btn-block").click(function () {
+                var url = $("#modalTop").data("url");
+                $.get(url, function (data) {
+                    $("#modalTop").html(data);
+                    $("#modalTop").modal("show");
+                });
+            })
+
+        })
+    </script>

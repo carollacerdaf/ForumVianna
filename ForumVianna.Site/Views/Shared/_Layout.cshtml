@@ -9,43 +9,11 @@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
-    @Styles.Render("~/Content/css")
-    @Styles.Render("~/Content/themes/base/css")
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/jqueryui")
-    @Scripts.Render("~/bundles/jqueryval")
-    @Scripts.Render("~/bundles/modernizr")
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
 
-    <script>
-        $(function () {
-            $("#dialog-modal").dialog({
-                autoOpen: false,
-                width: 300,
-                height: 250,
-                show: {
-                    effect: "blind",
-                    duration: 1000
-                },
-                hide: {
-                    effect: "explode",
-                    duration: 1000
-                }
-            });
-
-            $("#modal-opener").click(function () {
-                $("#dialog-modal").dialog("open");
-            });
-        });
-
-        function onSuccess() {
-            $("#dialog-modal").dialog("close");
-        }
-    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
