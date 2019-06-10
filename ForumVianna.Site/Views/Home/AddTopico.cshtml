@@ -11,20 +11,22 @@
     @Scripts.Render("~/bundles/jqueryval")
 }
 
-@using (Html.BeginForm("GravarTopico", "Home", FormMethod.Post))
-{
-    @Html.AntiForgeryToken()
+<div class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Tópico</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                
+                @using (Html.BeginForm("GravarTopico", "Home", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
 
-    <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">Tópico</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
+
                     <h4>Topico</h4>
                     <hr />
                     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
@@ -58,18 +60,16 @@
                             <input type="submit" value="Save" class="btn btn-default" />
                         </div>
                     </div>
-                </div>
-                </br></br>
-                <div class="modal-footer">
-                    <button type="submit" value="Save" class="btn btn-primary">Save changes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                </div>
+
+
+                }
+
+            </div>
+            </br></br>
+            <div class="modal-footer">
+                <button type="submit" value="Save" class="btn btn-primary">Save changes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
-
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
 </div>

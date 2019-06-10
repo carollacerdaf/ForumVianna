@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ForumVianna.Model.DB.Model.Comentario>
+﻿@using ForumVianna.Site.Utils
+
+@model IEnumerable<ForumVianna.Model.DB.Model.Comentario>
 
 @{
     ViewBag.Title = "Comentarios";
@@ -25,24 +27,31 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Texto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Criacao)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Arquivo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Criacao)
+        </td>
+        @if (LoginUtils.Instance.Usuario.Id == item.Dono.Id)
+        {
             <td>
-                @Html.DisplayFor(modelItem => item.Texto)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Criacao)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Arquivo)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Criacao)
-            </td>
-            <td>
+
                 @Html.ActionLink("Editar", "EditarComentario", new { id = item.Id, idDiscussao = idDiscussao }) |
                 @Html.ActionLink("Deletar", "DeletarComentario", new { id = item.Id, idDiscussao = idDiscussao })
+                }
+
             </td>
+        }
         </tr>
-    }
+            
+                        /**/
 
 </table>

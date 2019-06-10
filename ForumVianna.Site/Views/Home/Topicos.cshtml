@@ -1,4 +1,6 @@
-﻿@model IEnumerable<ForumVianna.Model.DB.Model.Topico>
+﻿@using ForumVianna.Site.Utils
+
+@model IEnumerable<ForumVianna.Model.DB.Model.Topico>
 
 @{
     ViewBag.Title = "Topicos";
@@ -9,7 +11,7 @@
 <h2>Topicos</h2>
 
 <p>
-    <button style="width:50px;" type="button" class="btn-block btn btn-primary">Adicionar Tópico</button>
+    <button style="width:150px;" type="button" class="btn-block btn btn-primary">Adicionar Tópico</button>
 </p>
 
 <div class="modal fade" id="modalTop" role="dialog"
@@ -43,9 +45,11 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Dono.Apelido)
             </td>
+            @if(LoginUtils.Instance.Usuario!=null && LoginUtils.Instance.Usuario.Id == item.Dono.Id){
             <td>
                 @Html.ActionLink("Inativar", "InativarTopico", new { id = item.Id })
             </td>
+            }
         </tr>
     }
 
