@@ -8,11 +8,44 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-    
+
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/themes/base/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryui")
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/jqueryval")
     @RenderSection("scripts", required: false)
+
+    <script>
+        $(function () {
+            $("#dialog-modal").dialog({
+                autoOpen: false,
+                width: 300,
+                height: 250,
+                show: {
+                    effect: "blind",
+                    duration: 1000
+                },
+                hide: {
+                    effect: "explode",
+                    duration: 1000
+                }
+            });
+
+            $("#modal-opener").click(function () {
+                $("#dialog-modal").dialog("open");
+            });
+        });
+
+        function onSuccess() {
+            $("#dialog-modal").dialog("close");
+        }
+    </script>
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -29,6 +62,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     @if (LoginUtils.Instance.Usuario != null)
                     {
+                        <li>@Html.ActionLink("Discussões", "Discussoes", "Home")</li>
                         <li>@Html.ActionLink("Tópicos", "Topicos", "Home")</li>
                         <li>@Html.ActionLink("Deslogar", "Deslogar", "Home")</li>
                         <li>@Html.ActionLink(LoginUtils.Instance.Usuario.Apelido, "Perfil", "Home")</li>
