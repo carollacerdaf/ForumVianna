@@ -16,3 +16,8 @@
     white-space: normal;
 }
 
+.modal{
+    width:750px;
+    height:200px;
+    background-color:white;
+}

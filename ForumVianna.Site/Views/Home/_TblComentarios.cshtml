@@ -40,18 +40,19 @@
         <td>
             @Html.DisplayFor(modelItem => item.Criacao)
         </td>
-        @if (LoginUtils.Instance.Usuario.Id == item.Dono.Id)
+        @if (LoginUtils.Instance.Usuario != null && LoginUtils.Instance.Usuario.Id == item.Dono.Id)
         {
             <td>
 
                 @Html.ActionLink("Editar", "EditarComentario", new { id = item.Id, idDiscussao = idDiscussao }) |
                 @Html.ActionLink("Deletar", "DeletarComentario", new { id = item.Id, idDiscussao = idDiscussao })
-                }
+                
 
             </td>
         }
         </tr>
-            
-                        /**/
+    }
+
+    
 
 </table>

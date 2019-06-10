@@ -11,14 +11,15 @@
 <h2>Discussoes</h2>
 @if (LoginUtils.Instance.Usuario != null) {
     <p>
-        <button style="width:150px;" type="button" class="btn-block btn btn-primary">Adicionar DIscussão</button>
+        <button style="width:150px;" type="button" class="btn-block btn btn-primary">Adicionar Discussão</button>
     </p>
 }
-<div class="modal fade" id="modalDis" role="dialog"
-     data-url="@Url.Action("AddDiscussao","Home")">
 
-</div>
+    <div class="modal fade" id="modalTop" role="dialog"
+         data-url="@Url.Action("AddDiscussao","Home")>
 
+    </div>
+ 
 
 <table class="table">
     <tr>
@@ -84,10 +85,10 @@
 <script>
     $(document).ready(function () {
         $(".btn-block").click(function () {
-            var url = $("#modalDis").data("url");
+            var url = $("#modalTop").data("url");
             $.get(url, function (data) {
-                $("#modalDis").html(data);
-                $("#modalDis").modal("show");
+                $("#modalTop").html(data);
+                $("#modalTop").modal("show");
             });
         })
 
